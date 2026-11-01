@@ -156,7 +156,12 @@ the direction sets `capsule_controls` (Glass) or for intentional pills.
 
 Sentence case. Name the verb and the object: `Create "Pad swell" on Strings?` with `Create` and
 `Deny`, never "Are you sure?" with OK. Nouns for destinations, verbs for commands, adjectives for
-states. Errors say what happened and how to recover. No terminal period on labels.
+states. Errors say what happened and how to recover. No terminal period on labels, headings or
+taglines, and no exclamation marks. Section labels stay in sentence case too, never capitals with
+wide tracking. Placeholders are short and name the field (`Search sessions`), not
+`Ask anything…`. A welcome screen names the product and what it is for; it does not greet the
+person. Emoji belong in what people type, never as icons or decoration in the chrome; use
+`IconName`.
 
 ## Review checklist
 

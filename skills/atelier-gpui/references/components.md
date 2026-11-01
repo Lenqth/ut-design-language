@@ -61,7 +61,8 @@ handler is not a stop. Nothing to wire up beyond:
 `Label::new(text)` with `.size(TextSize::XSmall|Small|Medium|Large|XLarge|Display)`,
 `.color(TextColor::Default|Muted|Faint|Accent|Agent|Success|Warning|Danger|Disabled|Custom)`,
 `.weight(..)`, `.heading_weight()`, `.mono()`, `.truncate()`.
-`Label::heading(t)` for section titles, `Label::caption(t)` for small uppercase region labels.
+`Label::heading(t)` for section titles, `Label::caption(t)` for small region labels (one step under body
+text, muted, in sentence case as written; never capitals with wide tracking).
 
 `SelectableText::new(id, text)` for read-only text the person may want to copy: a message, an
 attached file (`.mono()`), a log, error details. Drag, Shift-click, double-click (word) and

@@ -10,6 +10,23 @@ does not bring the old ways back.
 Atelier has no tagged releases yet; applications pin a git revision. Each section names the
 merge it shipped in.
 
+## Unreleased — fewer AI-template tells
+
+### Changed
+
+- `Label::caption` (and so `SectionHeader::caption`) is no longer set in capitals. It is the
+  text as written, one step under body text (`TextSize::Small`), muted, medium weight. Pass
+  captions in sentence case; one written in capitals for the old look now reads as shouting.
+- `Strings::ask_anything`, the composer's placeholder, reads "Ask the assistant…" ("アシスタントに
+  質問…" in Japanese) instead of the stock "Ask anything…". The field keeps its name.
+- The design rules' Copy section now spells out sentence-case section labels, no exclamation
+  marks, short placeholders, welcome screens that name the product instead of greeting, and no
+  emoji in the chrome.
+- Web kit: `.at-caption` follows `Label::caption` (sentence case, `--at-size-sm`, muted, 500),
+  and `.at-title` drops its negative letter spacing, which the gpui kit never had. The
+  showcase's welcome screen matches the native one: the product name and what it is for, Open…
+  beside New project, with no gradient sparkle tile and no "Welcome to" headline.
+
 ## Unreleased — focus handed in (Auris feedback round 6)
 
 ### Added
