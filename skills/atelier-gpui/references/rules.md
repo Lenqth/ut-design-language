@@ -155,12 +155,18 @@ the direction sets `capsule_controls` (Glass) or for intentional pills.
 
 Sentence case. Name the verb and the object: `Create "Pad swell" on Strings?` with `Create` and
 `Deny`, never "Are you sure?" with OK. Nouns for destinations, verbs for commands, adjectives for
-states. Errors say what happened and how to recover. No terminal period on labels.
+states. Errors say what happened and how to recover. No terminal period on labels, headings or
+taglines, and no exclamation marks. Section labels stay in sentence case too, never capitals with
+wide tracking. Placeholders are short and name the field (`Search sessions`), not
+`Ask anything…`. A welcome screen names the product and what it is for; it does not greet the
+person. Emoji belong in what people type, never as icons or decoration in the chrome; use
+`IconName`.
 
 ## Review checklist
 
 1. Is the primary task clear, and does the canvas get the space it deserves?
-2. Does each action keep its promise — label, state, scope, result?
+2. Does each action keep its promise — label, state, scope, result? Does each concept use the
+   control [choosing.md](choosing.md) gives it?
 3. Is emphasis scarce: one primary, few coloured badges, agent colour only for the agent?
 4. Are peers on shared alignment spines, with equal gaps equal?
 5. Do radii nest concentrically and do only floating layers cast shadows?

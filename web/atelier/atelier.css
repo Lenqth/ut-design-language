@@ -83,7 +83,6 @@ html[data-vibrancy] body.at-root {
 .at-title {
   font-size: var(--at-size-xl);
   font-weight: var(--at-heading-weight);
-  letter-spacing: -0.01em;
   margin: 0;
 }
 
@@ -105,12 +104,11 @@ html[data-vibrancy] body.at-root {
   font-size: var(--at-size-sm);
 }
 
+/* A section title in a sidebar or inspector, in sentence case as written, as `Label::caption`. */
 .at-caption {
-  font-size: var(--at-size-xs);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--at-text-faint);
+  font-size: var(--at-size-sm);
+  font-weight: 500;
+  color: var(--at-text-muted);
 }
 
 .at-mono {

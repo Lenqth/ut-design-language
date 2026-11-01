@@ -36,6 +36,91 @@ composition broken, and crates.io has nothing later.
 | --- | --- |
 | `libc` held at 0.2.189 for gpui 0.2.2's `xattr` on Linux | Nothing: gpui-pre does not depend on it |
 
+## Unreleased — screenshots retaken, knob icon redrawn
+
+### Changed
+
+- `IconName::Knob` is redrawn as a knob under a scale arc, with its pointer reaching the rim. The
+  old feet and top tick read as an alarm clock.
+- Web kit: `icons.js` carries the redrawn knob.
+- The screenshots in `doc/` and `web/README.md` show the current kit, taken on Linux under
+  Weston, and the node editor has one.
+
+## Unreleased — wrench icon redrawn
+
+### Fixed
+
+- `IconName::Wrench` was a damaged path that drew a crescent with a stray notch instead of a
+  wrench. It is redrawn as an open-ended wrench in the set's 2 px outline style, centred in the
+  24 px grid. The web kit's `wrench` icon is regenerated from the same file. Every other icon,
+  provider mark and the Auris Studio app icon was rendered at 10–28 px (1x and 2x) through
+  gpui's resvg path and in Chromium and came out intact, with no difference between the two.
+
+## Unreleased — fewer AI-template tells
+
+### Changed
+
+- `Label::caption` (and so `SectionHeader::caption`) is no longer set in capitals. It is the
+  text as written, one step under body text (`TextSize::Small`), muted, medium weight. Pass
+  captions in sentence case; one written in capitals for the old look now reads as shouting.
+- `Strings::ask_anything`, the composer's placeholder, reads "Ask the assistant…" ("アシスタントに
+  質問…" in Japanese) instead of the stock "Ask anything…". The field keeps its name.
+- The design rules' Copy section now spells out sentence-case section labels, no exclamation
+  marks, short placeholders, welcome screens that name the product instead of greeting, and no
+  emoji in the chrome.
+- Web kit: `.at-caption` follows `Label::caption` (sentence case, `--at-size-sm`, muted, 500),
+  and `.at-title` drops its negative letter spacing, which the gpui kit never had. The
+  showcase's welcome screen matches the native one: the product name and what it is for, Open…
+  beside New project, with no gradient sparkle tile and no "Welcome to" headline.
+
+## Unreleased — focus handed in (Auris feedback round 6)
+
+### Added
+
+- `Button::track_focus(&FocusHandle)` and `EffortButton::track_focus(..)`: the button tracks
+  the application's handle instead of one of its own, so `window.focus(&handle, cx)` can move focus
+  there, for example back to the effort button once Escape closes its picker. The handle
+  becomes a tab stop.
+- `EffortPicker::autofocus(true)`: the slider takes focus once each time the picker appears,
+  so the arrows, Home and End change the level at once and the focus ring sits on the slider.
+  `EffortPicker::slider_focus(&FocusHandle)` hands the slider a handle of the application's.
+- `ReadoutStrip::id(..)`: its test selector, like every other component's id.
+- `check-adoption.sh` reports a `debug_selector` wrapped around a `ReadoutStrip`.
+- Web kit: nothing to port. Its buttons are DOM buttons that `element.focus()` reaches, and the
+  effort picker and `ReadoutStrip` are not in the web kit yet.
+
+### Workarounds you can delete
+
+| Workaround | Use instead |
+| --- | --- |
+| A `menu_picker` of your own as the effort button, so focus can return to it on Escape | `EffortButton::new(..).track_focus(&handle)` and `window.focus(&handle, cx)` |
+| An outer frame around `EffortPicker` that holds focus and handles the arrows, Home and End | `EffortPicker::autofocus(true)` |
+| `div().debug_selector("transport-primary").child(ReadoutStrip::new()..)` | `ReadoutStrip::new().id("transport-primary")` |
+
+## Unreleased — flat buttons under Glass
+
+### Added
+
+- `Shape::bezel_controls`: whether a secondary `Button` is lifted with a top-lit gradient and
+  `elevation.low`. Only Studio sets it.
+- `Colors::control`: the secondary `Button` fill. It is `elevated` except under Glass with
+  `Material::Translucent`, where it is a see-through tone (white 10 % dark, black 5 % light) so
+  the glass behind shows, as Liquid Glass's buttons do. Cards and menus keep `elevated`.
+
+### Fixed
+
+- Secondary buttons under Glass no longer carry a bezel and a shadow. `Button` decided by
+  `colors.highlight.a > 0`, which Glass also sets; it now asks `shape.bezel_controls`, so
+  `highlight` is free for other uses.
+- The web kit follows: `--at-control` is the new token, and `.at-button` secondary is flat and
+  see-through under Glass (`--at-raised-shadow: none`), lifted only under Studio.
+
+### Workarounds you can delete
+
+| Workaround | Use instead |
+| --- | --- |
+| `colors.highlight` made transparent so Glass buttons lie flat | Nothing: only Studio bezels its buttons now |
+
 ## Unreleased — from Auris Studio 0.15 and 0.16
 
 What Auris Studio built for itself between 0.15 and 0.16 that other applications need too.
@@ -56,6 +141,19 @@ What Auris Studio built for itself between 0.15 and 0.16 that other applications
   `EffortButton::disabled(bool)`.
 - `Strings::effort`, `fast_mode_on`, `fast_mode_off` and `reset`: the effort picker's tooltips
   were English only.
+
+### Changed
+
+- The effort picker's top level is a small treat: as the thumb glides onto it the fill runs from
+  the accent into `colors.agent_gradient`, the sparkles twinkle faster, the thumb glows, the level
+  reads in the agent's colour, and a few sparks fly off the thumb when it lands. Not when the
+  picker opens already at the top, and no sparks with motion off.
+
+### Deprecated
+
+- `EffortPicker::model`, `model_icon` and `on_model`. The effort card no longer names the model:
+  switching models is its own button in the composer row (`Composer::model`), beside the effort
+  button, as Codex does. The card still draws the line while they are passed.
 
 ### Workarounds you can delete
 

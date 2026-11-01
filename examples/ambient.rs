@@ -154,7 +154,7 @@ impl Render for Welcome {
                     .gap(theme.spacing.xs)
                     .child(Label::new("Auris Studio").size(TextSize::Display))
                     .child(
-                        Label::new("思いついた音を、そのまま曲に。")
+                        Label::new("思いついた音を、そのまま曲に")
                             .size(TextSize::Large)
                             .color(TextColor::Muted),
                     ),

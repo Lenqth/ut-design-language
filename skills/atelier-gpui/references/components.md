@@ -1,5 +1,8 @@
 # Components
 
+Which of these a concept gets (a switch or a checkbox, segments or a menu, a slider or a
+knob) is decided in [choosing.md](choosing.md); this page is how to use each one.
+
 All are builders implementing `RenderOnce`; pass them to `.child(...)`. Interactive ones take an
 id and optional `on_click` / `on_select` / `on_toggle` callbacks; they draw a value but do not
 own it — the view keeps the state and calls `cx.notify()`. With `cx.listener` a select handler
@@ -46,14 +49,19 @@ handler is not a stop. Nothing to wire up beyond:
   `VisualTestContext::debug_bounds("export")` (enable gpui's `test-support` in the test build).
   Do not wrap components in `div().debug_selector(..)`. `tests/keyboard.rs` shows how to drive
   Tab, Enter and Space in a test (gpui presses a control on the key's release, and only after it
-  saw the press, so simulate the key down and then the `KeyUpEvent`).
+  saw the press, so simulate the key down and then the `KeyUpEvent`). `ReadoutStrip`, which is no control, takes `.id(..)` for the same reason.
+- A component keeps its own focus handle. When the application must move focus to it, hand it
+  one: `Button::track_focus(&handle)` (and `EffortButton::track_focus`), then
+  `window.focus(&handle, cx)`, for example to give focus back to the button that opened a popover
+  once Escape closes it. The handle becomes a tab stop and keeps its tab index.
 
 ## Text
 
 `Label::new(text)` with `.size(TextSize::XSmall|Small|Medium|Large|XLarge|Display)`,
 `.color(TextColor::Default|Muted|Faint|Accent|Agent|Success|Warning|Danger|Disabled|Custom)`,
 `.weight(..)`, `.heading_weight()`, `.mono()`, `.truncate()`.
-`Label::heading(t)` for section titles, `Label::caption(t)` for small uppercase region labels.
+`Label::heading(t)` for section titles, `Label::caption(t)` for small region labels (one step under body
+text, muted, in sentence case as written; never capitals with wide tracking).
 
 `SelectableText::new(id, text)` for read-only text the person may want to copy: a message, an
 attached file (`.mono()`), a log, error details. Drag, Shift-click, double-click (word) and
