@@ -103,7 +103,6 @@ pub struct Label {
     weight: Weight,
     mono: bool,
     truncate: bool,
-    uppercase: bool,
 }
 
 impl Label {
@@ -116,7 +115,6 @@ impl Label {
             weight: Weight::Normal,
             mono: false,
             truncate: false,
-            uppercase: false,
         }
     }
 
@@ -125,14 +123,14 @@ impl Label {
         Self::new(text).size(TextSize::Large).heading_weight()
     }
 
-    /// A small uppercase caption, for section titles in sidebars and inspectors.
+    /// A small caption, for section titles in sidebars and inspectors: a step under body text,
+    /// muted, in sentence case as written. It is never set in capitals with wide tracking; the
+    /// size and colour step alone set it apart from the rows under it.
     pub fn caption(text: impl Into<SharedString>) -> Self {
-        let mut label = Self::new(text)
-            .size(TextSize::XSmall)
-            .color(TextColor::Faint)
-            .weight(FontWeight::SEMIBOLD);
-        label.uppercase = true;
-        label
+        Self::new(text)
+            .size(TextSize::Small)
+            .color(TextColor::Muted)
+            .weight(FontWeight::MEDIUM)
     }
 
     /// Step on the type scale.
@@ -180,11 +178,7 @@ impl RenderOnce for Label {
             Weight::Heading => theme.typography.heading_weight,
             Weight::Explicit(weight) => weight,
         };
-        let text: SharedString = if self.uppercase {
-            self.text.to_uppercase().into()
-        } else {
-            self.text
-        };
+        let text = self.text;
         // The interface font, with its fallbacks, is inherited from the window root; only the
         // monospaced face has to be named here.
         let mut element = div();

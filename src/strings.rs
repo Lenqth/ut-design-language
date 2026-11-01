@@ -88,7 +88,7 @@ impl Strings {
         Self {
             assistant: "Assistant".into(),
             hide_assistant: "Hide assistant".into(),
-            ask_anything: "Ask anything…".into(),
+            ask_anything: "Ask the assistant…".into(),
             attach: "Attach context…".into(),
             send: "Send".into(),
             stop: "Stop".into(),
@@ -135,7 +135,7 @@ impl Strings {
         Self {
             assistant: "アシスタント".into(),
             hide_assistant: "アシスタントを隠す".into(),
-            ask_anything: "なんでも聞いてください…".into(),
+            ask_anything: "アシスタントに質問…".into(),
             attach: "コンテキストを添付…".into(),
             send: "送信".into(),
             stop: "停止".into(),
