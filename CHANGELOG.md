@@ -10,6 +10,16 @@ does not bring the old ways back.
 Atelier has no tagged releases yet; applications pin a git revision. Each section names the
 merge it shipped in.
 
+## Unreleased — screenshots retaken, knob icon redrawn
+
+### Changed
+
+- `IconName::Knob` is redrawn as a knob under a scale arc, with its pointer reaching the rim. The
+  old feet and top tick read as an alarm clock.
+- Web kit: `icons.js` carries the redrawn knob.
+- The screenshots in `doc/` and `web/README.md` show the current kit, taken on Linux under
+  Weston, and the node editor has one.
+
 ## Unreleased — wrench icon redrawn
 
 ### Fixed

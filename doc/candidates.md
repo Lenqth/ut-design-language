@@ -9,7 +9,7 @@ action is filled and how the AI is coloured; colours are derived from a few seed
 and checked for contrast in `src/theme.rs` tests.
 
 Screenshots are of `examples/showcase.rs` (a mock arrangement view with the agent panel open),
-captured on Windows at 150 % scale.
+captured on Linux under Weston at 100 % scale.
 
 ## Studio — after Logic Pro
 
@@ -26,8 +26,8 @@ Translucent chrome over a blurred window, 30 px capsule controls, large radii, r
 Calmer and friendlier; costs density. Suits consumer-facing creator apps and secondary windows
 (onboarding, voice setup, export).
 
-The Glass screenshots below were captured before the translucency fix and before the custom
-window frame, so they show opaque chrome under the system title bar.
+Weston has no blur behind windows, so the Glass screenshots below show the translucent chrome over
+the window's own fill rather than over a blurred desktop.
 
 ![Glass dark](images/arrange-glass-dark.png)
 ![Glass light](images/arrange-glass-light.png)

@@ -4,8 +4,8 @@ Each example is a mock: it shows fixed or synthesised data and is wired to nothi
 take `--direction glass|studio|mono`, `--appearance dark|light` and `--size WIDTHxHEIGHT`, and
 carry the same switch in their title bar. Every example lays out from 900 × 600 (its minimum
 window size) up to a large display: narrower windows drop the sidebar first, and spare height
-goes to the plots. Screenshots are Glass dark, captured on Windows with `PrintWindow`, which does
-not include the desktop blur behind translucent chrome.
+goes to the plots. Screenshots are Glass dark unless a caption says otherwise, captured on Linux
+under Weston with software rendering, which has no desktop blur behind translucent chrome.
 
 ## showcase — a DAW arrangement view
 
@@ -30,7 +30,7 @@ mark; the picked model's mark also stands on the picker and as the avatar of its
 The composer takes typing (a stand-in for the application's own input: no selection or input
 method): `:thi` opens emoji suggestions, Up and Down move through them, Tab or Enter puts 🤔 in,
 and Enter sends the message into the transcript. `--draft "いい感じ :thi"` starts with text typed.
-Captured on Linux under Weston, with the picker open.
+Pictured with the model picker open.
 
 ![Agent desktop](images/agent-desktop.png)
 
@@ -74,6 +74,8 @@ Port and wire colours come from `colors.ports`, with the type also named on the 
 and in the legend. The loudness node was added by the assistant: it is drawn dashed in the agent
 colour with Keep and Undo on the node, and the assistant panel holds the conversation.
 
+![Node editor](images/node-editor.png)
+
 ## plot_lab — a numerical workbench
 
 ```bash
@@ -96,7 +98,6 @@ attractor, and three point clusters drifting. With a GPU the 3-D plots are shade
 fallback.
 Drag any of them to turn all three; the inspector has the standard views, the shading
 (faceted, smooth, mesh) and a turntable.
-These two screenshots were captured on Linux under Xvfb.
 
 ![Plot lab, 2-D](images/plot-lab-2d.png)
 
@@ -123,7 +124,6 @@ runs in a table. Inference runs an example image (or a random one, with noise if
 any run's latest checkpoint and shows the top five labels; with Live on it asks again at every new
 checkpoint, so the answer can be watched getting surer as the run trains, and a plot follows the
 true class's probability across checkpoints. `--step N` starts with every run trained that far.
-Captured on Linux under Weston.
 
 ![Training dashboard, Scalars](images/training-dashboard-scalars.png)
 
@@ -157,7 +157,7 @@ can be played with like the oil on a bowl of ramen: press on one and carry it, b
 others and they fuse into one larger drop. A fused drop sheds one of its drops now and then,
 more often when the pointer brushes across it, and tears apart if carried too fast;
 double-click to part them all again. Metal is
-kept to the welcome screen: on controls it made sizes uneven and said too much. Captured on Linux under Weston.
+kept to the welcome screen: on controls it made sizes uneven and said too much.
 
 ![Liquid metal welcome, Glass dark](images/liquid-metal-welcome-glass-dark.png)
 
@@ -204,7 +204,7 @@ pointer passes and join into a constellation round it that fades behind it; pres
 and let go over another to draw a line between them that stays (draw it again to take it
 away), press on the open sky to send a shooting star, and double-click to wipe the lines away.
 Without a hardware GPU the backdrop is one still frame shaded on the CPU, with no animation and
-no response. Captured on Linux under Weston.
+no response.
 
 ![Aurora, Glass dark](images/ambient-aurora-glass-dark.png)
 
@@ -262,8 +262,7 @@ composer's `Completions` on `/mo`.
 ![AI compose](images/auris-compose.png)
 
 **The hand-off.** "AIで作り始める…" grows the AI tile's shape to fill the window while the compose
-screen, already laid out at its final size, fades in over it (`Morph`; captured mid-way on
-Linux).
+screen, already laid out at its final size, fades in over it (`Morph`; captured mid-way).
 
 ![Hand-off from the chooser to the compose window](images/auris-handoff.png)
 
@@ -278,7 +277,7 @@ lines of description per page and the setup guide last; each page a header and g
 labelled fields in a readable column (`density.form_width`), labels above fields and beside
 switches; the page's actions at its foot with Save at the trailing end; and a status bar that
 reports what the last action did. Every control is reached with Tab; in the first picture the
-outline sits on the "クラウド" segment after tabbing to it. Captured on Linux.
+outline sits on the "クラウド" segment after tabbing to it.
 
 ![Preferences, voice synthesis, keyboard focus on a segment](images/preferences.png)
 
@@ -297,7 +296,6 @@ stand-ins. Each row names the concept and everyday examples, draws the control l
 what to use and which neighbour to avoid. `--menu` opens the model menu on the "choose" page.
 The same table for agents is
 [skills/atelier-gpui/references/choosing.md](../skills/atelier-gpui/references/choosing.md).
-Captured on Linux under Weston.
 
 ![Control legend, on/off](images/control-legend.png)
 
