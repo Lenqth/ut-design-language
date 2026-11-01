@@ -10,6 +10,16 @@ does not bring the old ways back.
 Atelier has no tagged releases yet; applications pin a git revision. Each section names the
 merge it shipped in.
 
+## Unreleased — wrench icon redrawn
+
+### Fixed
+
+- `IconName::Wrench` was a damaged path that drew a crescent with a stray notch instead of a
+  wrench. It is redrawn as an open-ended wrench in the set's 2 px outline style, centred in the
+  24 px grid. The web kit's `wrench` icon is regenerated from the same file. Every other icon,
+  provider mark and the Auris Studio app icon was rendered at 10–28 px (1x and 2x) through
+  gpui's resvg path and in Chromium and came out intact, with no difference between the two.
+
 ## Unreleased — fewer AI-template tells
 
 ### Changed
